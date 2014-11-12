@@ -6,8 +6,13 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
+  config.vm.provider "virtualbox" do |vb|
+  vb.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+
+
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "hashicorp/precise32"
+  config.vm.box = "ubuntu/trusty32"
 
   # Provisioning script
   config.vm.provision :shell, path: "bootstrap.sh"
