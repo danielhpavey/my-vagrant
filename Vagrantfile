@@ -7,7 +7,8 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provider "virtualbox" do |vb|
-  vb.customize ["modifyvm", :id, "--memory", "1024"]
+  vb.customize ["modifyvm", :id, "--memory", "2048"]
+  vb.customize ["modifyvm", :id, "--cpus", "2"] 
   end
 
   # Required for NFS to work, pick any local IP
