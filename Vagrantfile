@@ -10,6 +10,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   vb.customize ["modifyvm", :id, "--memory", "1024"]
   end
 
+  # Required for NFS to work, pick any local IP
+   config.vm.network :private_network, ip: '192.168.50.50'
+  # Use NFS for shared folders for better performance
+   config.vm.synced_folder '.', '/vagrant', nfs: true
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty32"
