@@ -21,6 +21,13 @@ EOF
 sudo echo "${VHOST}" > /etc/apache2/sites-enabled/000-default.conf
 
 
+# Mysql
+# -----
+# Ignore the post install questions
+export DEBIAN_FRONTEND=noninteractive
+# Install MySQL quietly
+apt-get -q -y install mysql-server-5.5
+
 
 # PHP stuff
 # ---------
