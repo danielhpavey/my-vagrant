@@ -12,9 +12,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Required for NFS to work, pick any local IP
-   config.vm.network :private_network, ip: '192.168.50.50'
+   config.vm.network :public_network, ip: '192.168.101.50'
   # Use NFS for shared folders for better performance
-   config.vm.synced_folder '.', '/vagrant', nfs: true
+   config.vm.synced_folder '.', '/vagrant'
 
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "ubuntu/trusty64"
