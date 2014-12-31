@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Required for NFS to work, pick any local IP
-   config.vm.network :public_network, ip: '192.168.101.50'
+   config.vm.network :public_network, ip: '192.168.101.50', bridge: 'en1: Ethernet 2'
   # Use NFS for shared folders for better performance
   config.vm.synced_folder "./", "/vagrant", id: "vagrant-root",
     owner: "vagrant",
@@ -27,5 +27,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Set up networking
   config.vm.network :forwarded_port, host: 8080, guest: 80
+  config.vm.network :forwarded_port, host: 3306, guest: 3306 
 
 end
